@@ -68,7 +68,7 @@ def process(img_raw):
     cls_result = cls_id(img_cls)
     cls_result_sm = softmax(cls_result)
     if cls_result_sm[0]>cls_result_sm[1]:
-        return([img_crop, 'real :thumbsup:', str(cls_result_sm[0])+'%'])
+        return([img_crop, 'live :thumbsup:', str(cls_result_sm[0])+'%'])
     else:
         return([img_crop, 'spoof :thumbsdown:', str(cls_result_sm[1])+'%'])
 
