@@ -8,11 +8,15 @@ import onnxruntime as ort
 path_yolo = "weights/best_ckpt.onnx"
 path_cls = "weights/id_crop_cls_v2_regnetY.onnx"
 
-sess_yolo = ort.InferenceSession(path_yolo)
+@st.cache
+def load_model(path):
+	return ort.InferenceSession(path)
+
+sess_yolo = load_model(path_yolo)
 input_name_yolo = sess_yolo.get_inputs()[0].name
 input_shape_yolo = sess_yolo.get_inputs()[0].shape
 
-sess_cls = ort.InferenceSession(path_cls)
+sess_cls = load_model(path_cls)
 input_name_cls = sess_cls.get_inputs()[0].name
 input_shape_cls = sess_cls.get_inputs()[0].shape
 
