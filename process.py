@@ -79,7 +79,7 @@ st.write("## ID Citizen Identification Card Spoofing-Classifier")
 st.write("Demo version")
 st.sidebar.write("## Upload an image of ID Card :gear:")
 
-MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
+MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
 
 # # Download the fixed image
 # def convert_image(img):
@@ -109,6 +109,6 @@ my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpe
 
 if my_upload is not None:
     if my_upload.size > MAX_FILE_SIZE:
-        st.error("The uploaded file is too large. Please upload an image smaller than 5MB.")
+        st.error("The uploaded file is too large. Please upload an image smaller than 10MB.")
     else:
         fix_image(upload=my_upload)
